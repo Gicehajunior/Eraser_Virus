@@ -15,7 +15,7 @@ An Eraser Virus is a malicious piece of code that targets files on your machine.
 # Getting Started
 1. Clone the repository: git clone https://github.com/Gicehajunior/Eraser_Virus.git
 
-2. Go inside the repository: cd infect_virus
+2. Go inside the repository
 
 3. Run the test: php infect_virus
 
