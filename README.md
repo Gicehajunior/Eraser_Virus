@@ -11,7 +11,7 @@ An Eraser Virus is a malicious piece of code that targets files on your machine.
 
 1. Something bad is executed.
 2. An Eraser file executable that has not yet been infected is searched for in the current working directory. If found,
-3. The file is infected, by adding the some unhashable code in each of the file line start. Note Better: code generated using MCRYPT.
+3. The file is infected, by adding the some unhashable code in each of the file line start. Note Better: code generated using BYCRYPT.
 # Getting Started
 1. Clone the repository: git clone https://github.com/Gicehajunior/Eraser_Virus.git
 
