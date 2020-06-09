@@ -18,8 +18,8 @@ How it works
 
 3. Run the test: php infect_virus
 
-4. View and edit the source code: 
+4. View and edit the source code:
 
-5. Compile the source code: gcc -o virus src/virus.c
+5. Compile the source code
 
-6. Run the virus:
+6. Run the virus
